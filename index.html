@@ -1,15 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; initial-scale=1.0; charset=UTF-8" />
-        <meta http-equiv="Content-Style-Type" content="text/css" />
-        <meta http-equiv="Content-Script-Type" content="text/javascript" />
-        <meta http-equiv="MSThemeCompatible" CONTENT="yes" />
-        <title>Insert title here</title>
-    </head>
-<body>
-
-<img src=//"maps.googleapis.com/maps/api/streetview?size=640x480&heading=180&fov=120&location=33.59656025053064, 130.21688103675842&sensor=false&key="AIzaSyALc4TnTd4kYaESMfLjWMaYuIYQlUY241w"> </a>
-
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Street View</title>
+    <style>
+      #map {
+        height: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initPano() {
+        var latLng = { lat: 35.658581, lng: 139.745433 }; // 東京タワーの緯度経度
+        var panorama = new google.maps.StreetViewPanorama(
+          document.getElementById('map'), {
+            position: latLng,
+            pov: {
+              heading: 34,
+              pitch: 10
+            }
+          }
+        );
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALc4TnTd4kYaESMfLjWMaYuIYQlUY241w&callback=initPano"></script>
+  </body>
 </html>
