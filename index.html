@@ -12,6 +12,17 @@
         padding: 0;
       }
     </style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com; script-src-elem 'self' https://bousai-kensyo-02.github.io https://maps.googleapis.com">
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="https://your-server-address/script.js"></script>
+  </body>
+</html>
+手順3: サーバーにファイルを再アップロード
+これでCSP設定が調整され、指定したスクリプトが読み込まれるようになります。HTMLファイルとJavaScriptファイルをサーバーに再アップロードしてください。
+
+この方法で、CSPのエラーを解決し、スクリプトの読み込みを許可することができます。試してみて、うまくいくか教えてくださいね。
   </head>
   <body>
     <div id="map"></div>
