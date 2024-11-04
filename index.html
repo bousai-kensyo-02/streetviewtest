@@ -17,7 +17,12 @@
     <div id="map"></div>
     <script>
       function initPano() {
-        var latLng = { lat: 35.658581, lng: 139.745433 }; // 東京タワーの緯度経度
+        var urlParams = new URLSearchParams(window.location.search);
+        var lat = parseFloat(urlParams.get('lat')) || 35.658581; // デフォルトの緯度: 東京タワー
+        var lng = parseFloat(urlParams.get('lng')) || 139.745433; // デフォルトの経度: 東京タワー
+
+        var latLng = { lat: lat, lng: lng };
+
         var panorama = new google.maps.StreetViewPanorama(
           document.getElementById('map'), {
             position: latLng,
